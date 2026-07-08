@@ -1,3 +1,42 @@
 [
-  { "task_id": "t1", "prompt": "What is the capital of France?" }
+  {
+    "task_id": "t1",
+    "prompt": "What is the difference between TCP and UDP? Explain in 2-3 sentences."
+  },
+  {
+    "task_id": "t2",
+    "prompt": "A store sells a laptop for $850 after applying a 15% discount. What was the original price?"
+  },
+  {
+    "task_id": "t3",
+    "prompt": "A shipment arrives late for the third time this month, but the driver still calls to apologize personally and offers a partial refund. Classify the overall customer sentiment as positive, negative, or mixed, and justify the classification in 1-2 sentences."
+  },
+  {
+    "task_id": "t4",
+    "prompt": "Summarise the following text in exactly one sentence: 'The James Webb Space Telescope, launched in December 2021, is the largest and most powerful space telescope ever built. It observes the universe primarily in infrared light, allowing it to see through cosmic dust clouds and detect light from the earliest galaxies formed after the Big Bang. Unlike its predecessor Hubble, JWST orbits the Sun at a location called the second Lagrange point, roughly 1.5 million kilometers from Earth.'"
+  },
+  {
+    "task_id": "t5",
+    "prompt": "Extract all named entities from the following text and return them as JSON with keys 'person', 'org', 'location', 'date': 'On March 3, 2024, Satya Nadella announced during a Microsoft press event in Redmond that the company would expand its AI research partnership with OpenAI.'"
+  },
+  {
+    "task_id": "t6",
+    "prompt": "The following Python function should return the factorial of n, but it has a bug. Identify the bug and provide the corrected code:\n\ndef factorial(n):\n    result = 0\n    for i in range(1, n+1):\n        result *= i\n    return result"
+  },
+  {
+    "task_id": "t7",
+    "prompt": "Three friends, Amara, Ben, and Chen, each own a different pet (cat, dog, fish) and live on a different floor (1, 2, 3) of the same building. Clues: (1) Amara does not live on floor 1. (2) The dog owner lives on floor 2. (3) Chen owns the fish. (4) Ben lives on floor 3. Determine each person's pet and floor."
+  },
+  {
+    "task_id": "t8",
+    "prompt": "Write a Python function `is_palindrome(s: str) -> bool` that returns True if the input string is a palindrome, ignoring case, spaces, and punctuation."
+  },
+  {
+    "task_id": "t9",
+    "prompt": "A company's revenue grew from $2.4 million to $3.9 million over 3 years. What is the compound annual growth rate (CAGR), rounded to one decimal place?"
+  },
+  {
+    "task_id": "t10",
+    "prompt": "Classify the sentiment of this review as positive, negative, or neutral, and justify in one sentence: 'The phone works fine, does what it's supposed to, nothing special but no complaints either.'"
+  }
 ]
