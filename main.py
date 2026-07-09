@@ -4,6 +4,15 @@ from dotenv import load_dotenv
 load_dotenv()
 from openai import OpenAI
 
+from router import classify_task
+from templates import TEMPLATE_MAP
+
+CATEGORIES = ["factual_qa", "math_reasoning", "sentiment", "summarization", "ner", "code_debugging", "logic_puzzles", "code_generation"]
+CATEGORY_MODEL_MAP = {
+    "code_debugging": "kimi-k2p7-code",
+    "code_generation": "kimi-k2p7-code",
+}
+
 def main():
     input_path = os.environ.get("TASKS_PATH", "/input/tasks.json")
     output_dir = os.environ.get("OUTPUT_DIR", "/output")
@@ -22,9 +31,18 @@ def main():
 
     results = []
     for task in tasks:
+        category = classify_task(task["prompt"])
+        build_prompt_fn = TEMPLATE_MAP.get(category, lambda p: p)
+        prompt = build_prompt_fn(task["prompt"])
+        preferred_model_name = CATEGORY_MODEL_MAP.get(category)
+        if preferred_model_name and f"accounts/fireworks/models/{preferred_model_name}" in allowed_models:
+            model = f"accounts/fireworks/models/{preferred_model_name}"
+        else:
+            model = allowed_models[0]
+
         response = client.chat.completions.create(
             model=model,
-            messages=[{"role": "user", "content": task["prompt"]}]
+            messages=[{"role": "user", "content": prompt}]
         )
         answer = response.choices[0].message.content
         results.append({"task_id": task["task_id"], "answer": answer})
