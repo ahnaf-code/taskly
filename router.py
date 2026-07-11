@@ -1,6 +1,8 @@
 import re
+
+
 def classify_task(task_prompt: str) -> str:
-    return "factual_qa"
+    return classify_task_keyword(task_prompt)
 
 
 ROUTER_RULES = {
@@ -84,7 +86,7 @@ ROUTER_RULES = {
         r"\bwrap up\b",
     ],
 
-    "sentiment_classification": [
+    "sentiment": [
         r"\bsentiment\b",
         r"\bpositive\b.*\bnegative\b",
         r"\bclassify\b.*\breview\b",
@@ -103,7 +105,7 @@ ROUTER_RULES = {
         r"\boverall sentiment\b",
     ],
 
-    "named_entity_recognition": [
+    "ner": [
         r"\bextract\b.*\bentit\w*\b",
         r"\bnames\b.*\b(?:people|locations|organizations|dates)\b",
         r"\bner\b",
@@ -117,7 +119,7 @@ ROUTER_RULES = {
         r"\b(?:person|org|location|date)\b",
     ],
 
-    "logical_reasoning": [
+    "logic_puzzles": [
         r"\bif\b.*\bthen\b",
         r"\bpuzzle\b",
         r"\btrue\b.*\bfalse\b",

@@ -1,35 +1,35 @@
 [
   {
     "task_id": "t1",
-    "answer": "TCP (Transmission Control Protocol) is a connection-oriented protocol that establishes a reliable session between sender and receiver, ensuring data is delivered in order and without errors through mechanisms like handshaking, acknowledgments, and retransmission. UDP (User Datagram Protocol) is a connectionless protocol that sends data without establishing a session, offering faster but unreliable transmission with no guarantee of delivery, order, or error checking. In summary, TCP prioritizes reliability and accuracy while UDP prioritizes speed and efficiency."
+    "answer": "TCP (Transmission Control Protocol) is a connection-oriented protocol that establishes a reliable connection between sender and receiver, ensuring data is delivered in order and without errors through mechanisms like acknowledgments and retransmissions. UDP (User Datagram Protocol) is a connectionless protocol that sends data without establishing a connection, offering faster but unreliable transmission with no guarantee of delivery or order. TCP prioritizes reliability and accuracy, while UDP prioritizes speed and low latency, making TCP suitable for applications like web browsing and file transfers, and UDP suitable for streaming and online gaming."
   },
   {
     "task_id": "t2",
-    "answer": "$1000"
+    "answer": "1000"
   },
   {
     "task_id": "t3",
-    "answer": "**Mixed.** The repeated late deliveries represent a clear negative experience, but the driver's personal apology and partial refund demonstrate positive customer service recovery, combining frustration with appreciation for the remediation effort."
+    "answer": "mixed. The customer is frustrated by the recurring late deliveries but appreciative of the driver's personal apology and refund offer."
   },
   {
     "task_id": "t4",
-    "answer": "Launched in December 2021, the James Webb Space Telescope is the largest and most powerful space telescope ever built, operating primarily in infrared to observe early galaxies through cosmic dust while orbiting the Sun at the second Lagrange point about 1.5 million kilometers from Earth."
+    "answer": "The James Webb Space Telescope, launched in December 2021 as the largest and most powerful space telescope ever built, observes the universe in infrared light to see through cosmic dust and detect early galaxies, and operates from the second Lagrange point about 1.5 million kilometers from Earth."
   },
   {
     "task_id": "t5",
-    "answer": "{\"person\": [\"Satya Nadella\"], \"org\": [\"Microsoft\", \"OpenAI\"], \"location\": [\"Redmond\"], \"date\": [\"March 3, 2024\"]}"
+    "answer": "[{\"entity\": \"March 3, 2024\", \"type\": \"DATE\"}, {\"entity\": \"Satya Nadella\", \"type\": \"PERSON\"}, {\"entity\": \"Microsoft\", \"type\": \"ORG\"}, {\"entity\": \"Redmond\", \"type\": \"LOCATION\"}, {\"entity\": \"OpenAI\", \"type\": \"ORG\"}]"
   },
   {
     "task_id": "t6",
-    "answer": "The bug is that `result` is initialized to `0` instead of `1`. Since any number multiplied by `0` remains `0`, the function will always return `0`.\n\nCorrected code:\n\n```python\ndef factorial(n):\n    result = 1\n    for i in range(1, n+1):\n        result *= i\n    return result\n```"
+    "answer": "Bug: The variable result is initialized to 0, so multiplying by any number always stays 0.\ndef factorial(n):\n    result = 1\n    for i in range(1, n+1):\n        result *= i\n    return result"
   },
   {
     "task_id": "t7",
-    "answer": "**Amara:** dog, floor 2\n**Ben:** cat, floor 3\n**Chen:** fish, floor 1"
+    "answer": "Amara owns the dog and lives on floor 2. Ben owns the cat and lives on floor 3. Chen owns the fish and lives on floor 1."
   },
   {
     "task_id": "t8",
-    "answer": "```python\ndef is_palindrome(s: str) -> bool:\n    cleaned = ''.join(c.lower() for c in s if c.isalnum())\n    return cleaned == cleaned[::-1]\n```"
+    "answer": "import re\n\ndef is_palindrome(s: str) -> bool:\n    cleaned = re.sub(r'[^a-zA-Z0-9]', '', s).lower()\n    return cleaned == cleaned[::-1]"
   },
   {
     "task_id": "t9",
@@ -37,6 +37,6 @@
   },
   {
     "task_id": "t10",
-    "answer": "**Neutral.** The review expresses moderate satisfaction (\"works fine,\" \"no complaints\") but tempers it with indifference (\"nothing special\"), resulting in an overall balanced, non-committal sentiment."
+    "answer": "neutral. The reviewer expresses neither praise nor dissatisfaction, simply stating the phone functions as expected without anything remarkable or problematic."
   }
 ]

@@ -6,22 +6,19 @@ def build_prompt(task_prompt: str) -> str:
     """
     system_instruction = (
         "You are an expert sentiment analysis assistant.\n"
-        "Classify the sentiment of the given text and justify your classification.\n"
-        "CRITICAL INSTRUCTIONS:\n"
-        "- Output ONLY a single sentiment label, nothing else.\n"
-        "- Label must be exactly one of: positive, negative, neutral.\n"
-        "- Do NOT include justification or any other text.\n"
-        "- Do NOT add any extra commentary outside the specified format.\n\n"
+        "Classify the sentiment as requested (use the exact label options given in the task, if any), then give a justification in exactly one sentence.\n"
+        "Output format: <label>. <one-sentence justification>.\n"
+        "Do not use markdown formatting. Plain text only.\n\n"
 
         "--- EXAMPLE 1 INPUT ---\n"
         "Text: \"The service was fast and the staff were incredibly friendly.\"\n"
         "--- EXAMPLE 1 OUTPUT ---\n"
-        "positive\n\n"
+        "positive. The service felt welcoming and efficient because the staff were friendly and the experience was smooth.\n\n"
 
         "--- EXAMPLE 2 INPUT ---\n"
         "Text: \"I waited an hour and the food arrived cold.\"\n"
         "--- EXAMPLE 2 OUTPUT ---\n"
-        "negative\n"
+        "negative. The experience was frustrating because the wait was long and the food was cold.\n"
         "--- END OF EXAMPLES ---\n"
     )
 
