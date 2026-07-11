@@ -40,12 +40,16 @@ def main():
         else:
             model = allowed_models[0]
 
-        response = client.chat.completions.create(
-            model=model,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        answer = response.choices[0].message.content
-        results.append({"task_id": task["task_id"], "answer": answer})
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            answer = response.choices[0].message.content
+            results.append({"task_id": task["task_id"], "answer": answer})
+        except Exception as e:
+            print(e)
+            results.append({"task_id": task["task_id"], "answer": ""})
 
     os.makedirs(output_dir, exist_ok=True)
     with open(os.path.join(output_dir, "results.json"), "w") as f:
