@@ -1,8 +1,6 @@
 # Taskly Agent
 
-Taskly is an intelligent routing AI agent built for Track 1 of the AMD Developer Hackathon. It acts as a smart dispatcher for natural language tasks across various capability domains (math reasoning, code generation, sentiment analysis, etc.).
-
-To optimize for token efficiency and cost, Taskly evaluates each incoming prompt. It processes standard tasks using lightweight local models (which cost zero tokens) and strictly reserves external API calls to premium Fireworks AI models for high-complexity reasoning tasks.
+Taskly is an intelligent routing AI agent built for Track 1 of the AMD Developer Hackathon. It classifies incoming natural language tasks into 8 capability domains (math reasoning, code generation, sentiment analysis, etc.) using a zero-cost, keyword-based classifier, then routes each task to a category-tuned prompt template and the most suitable Fireworks AI model from the competition's allowed model set — optimizing for both accuracy and token efficiency.
 
 ## Environment Setup
 
@@ -58,6 +56,8 @@ docker build -t taskly:test .
 
 ```
 
+Note: if building on Apple Silicon (M1/M2/M3/M4), the evaluation harness requires linux/amd64. Use: docker buildx build --platform linux/amd64 -t taskly:test .
+
 
 2. **Run the container:**
 ```bash
@@ -80,17 +80,13 @@ To run the pre-built image directly from the public GitHub Container Registry:
 
 1. **Pull the image:**
 ```bash
-docker pull ghcr.io/<YOUR_GITHUB_USERNAME>/taskly-agent:latest
+docker pull ghcr.io/ahnaf-code/taskly:latest
 
 ```
 
 
 2. **Run the container:**
 ```bash
-docker run --rm \
-  --env-file .env \
-  -v $(pwd)/input:/input \
-  -v $(pwd)/output:/output \
-  ghcr.io/<YOUR_GITHUB_USERNAME>/taskly-agent:latest
+docker run --rm --env-file .env -v $(pwd)/input:/input -v $(pwd)/output:/output ghcr.io/ahnaf-code/taskly:latest
 
 ```
